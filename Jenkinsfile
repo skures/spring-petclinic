@@ -28,6 +28,7 @@ pipeline {
             sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
             sh 'docker push dcanadillas/spring-petclinic:latest'
           }
+          publishEvent simpleEvent('dcanadillas/spring-petclinic:latest')
         }
       }
     }
