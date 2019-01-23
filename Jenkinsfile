@@ -26,7 +26,7 @@ pipeline {
         container('docker'){
           withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
             sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-            sh 'docker push dcanadillas/spring-petclinic:latest'
+            sh 'docker push skures/spring-petclinic:latest'
           }
           publishEvent simpleEvent('skures/spring-petclinic:latest')
         }
