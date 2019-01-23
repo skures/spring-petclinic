@@ -10,7 +10,7 @@ pipeline {
     stage('Maven Install') {
       steps {
         container('maven') {
-          sh 'echo hello'
+          sh 'echo hello 999002'
           sh 'mvn clean install'
         }
       }
