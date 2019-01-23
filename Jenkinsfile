@@ -17,7 +17,7 @@ pipeline {
     stage('Docker Build') {
       steps {
         container('docker'){
-          sh 'docker build -t dcanadillas/spring-petclinic:latest .'
+          sh 'docker build -t stefku/spring-petclinic:latest .'
         }
       }
     }
@@ -28,7 +28,7 @@ pipeline {
             sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
             sh 'docker push dcanadillas/spring-petclinic:latest'
           }
-          publishEvent simpleEvent('dcanadillas/spring-petclinic:latest')
+          publishEvent simpleEvent('skures/spring-petclinic:latest')
         }
       }
     }
